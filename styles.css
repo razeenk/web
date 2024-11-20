@@ -3,6 +3,9 @@
 :root {
   --m: 4rem;
 }
+#section{
+  color: black;
+}
 
 * {
   box-sizing: border-box;
@@ -19,7 +22,7 @@ html {
 }
 
 body {
-  background-color: #dae362;
+  background-color: #DAE362;
   color: #d5d5d5;
   font-family: "IBM Plex Sans";
   font-weight: 300;
