@@ -32,3 +32,20 @@ setInterval(changeGreeting, 3600);
 document.getElementById('logo').oncontextmenu=function(e){
     e.preventDefault();
 }
+//load text ith delay
+document.addEventListener("DOMContentLoaded", () => {
+    // Set a delay of 2 seconds before showing the text
+    setTimeout(() => {
+      const loadingText = document.getElementById("main-txt");
+      loadingText.parentElement.style.visibility = "visible"; // Make the text visible after 2 seconds
+    }, 1000); // 2-second delay
+  });
+  //audio for page 2
+  const audioPlayer = document.getElementById('audioPlayer');
+  const playAudioButton = document.getElementById('playAudio');
+
+  playAudioButton.addEventListener('click', () => {
+    audioPlayer.play();
+  });
+
+  
