@@ -3,11 +3,9 @@ const greetings = [
     'Hola',
     'Hello',
     'नमस्ते',
-    'Bonjour',
     '你好',
     'Ciao',
     'Olá',
-    'Привет',
     'مرحبا'
 ];
 let currentIndex = 0;
@@ -29,3 +27,8 @@ function changeGreeting() {
 
 // Start the interval
 setInterval(changeGreeting, 3600); 
+//image protection
+
+document.getElementById('logo').oncontextmenu=function(e){
+    e.preventDefault();
+}
