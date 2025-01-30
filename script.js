@@ -47,5 +47,9 @@ document.addEventListener("DOMContentLoaded", () => {
   playAudioButton.addEventListener('click', () => {
     audioPlayer.play();
   });
-
+//this is function is more button in section 4
+document.getElementById('more-button')
+.addEventListener('click',function(){
+    window.location.href='./products.html';
+});
   

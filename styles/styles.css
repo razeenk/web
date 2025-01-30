@@ -145,6 +145,10 @@ a {
 .footer-columns {
   display: contents;
 }
+.social-img{
+  height: auto;
+  width: auto;
+}
 
 @media screen and (max-width: 1000px) {
   :root {
@@ -327,3 +331,19 @@ a {
 }
 /* for audio end */
 /*sector 2 end */
+
+/* sector 3 start here*/
+#manifesto-div{
+  text-align: center;
+  color: black;
+  list-style-position: inside;
+}
+#gap-mani-div{
+  height: 7px;
+
+}
+#gap-mani-div-main{
+  height: 15px;
+}
+
+/*sector 3 end here */
