@@ -19,6 +19,22 @@
     width: 310px;
 }
 /* sector 3 */
+#manifesto-styl{
+    align-items: center;
+    margin: 5%;
+}
+#manifesto-head{
+    font-size: larger;
+}
+#manifesto-points{
+    font-size: large;
+    
+}
+.main-point{
+    font-weight: 400;
+}
+/* end of sector 3 */
+/* sector 4 */
 #gap-product{
     height: 3%;
 }
