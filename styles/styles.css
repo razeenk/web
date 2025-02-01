@@ -26,7 +26,7 @@ html {
 body {
   background-color: #dae362;
   color: #d5d5d5;
-  font-family: "IBM Plex Sans";
+  font-family: "I;BM Plex Sans";
   font-weight: 300;
   margin: 0;
   font-size: calc(0.3 * var(--m));
@@ -350,3 +350,10 @@ a {
 }
 
 /*sector 3 end here */
+#snap-logo{
+  height: 100px;
+  width: 100px;
+}
+#snap-tag{
+  font-family: "Manrope", serif;
+}

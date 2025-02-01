@@ -6,7 +6,8 @@ const greetings = [
     '你好',
     'Ciao',
     'Olá',
-    'مرحبا'
+    'مرحبا',
+    'നമസ്കാരം'
 ];
 let currentIndex = 0;
 

@@ -35,56 +35,39 @@
 }
 /* end of sector 3 */
 /* sector 4 */
-#gap-product{
-    height: 3%;
-}
-#product-condiner{
-    border: .5px;
-    border-style: solid;
-    border-radius: 7px;
-    border-color: black;
-    height: 30%;
-    width: 90%;
-    margin-left: 5%;
-    margin-top: 4%;
-    
-
-}
-#product-div{
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    text-align: center;
-    column-gap: 10px;
-}
 #product-text{
     color: black;
-    font-weight: bolder;
-}
-#more-phone-only{
-    width: 90%;
-    height: 10%;
-    margin: 5%;
-}
-#more-button-div{
-    height: 100%;
-    width: 40%;
-    margin-left: 60%;
-    
+    font-family: "Playfair Display", serif;
+    margin-top: 10%;
 
 }
-#more-button{
-    width: 100%;
+#snap-logo{
+    height: 30%;
+    width: 30%;
+    margin-top: 30%;
+    align-self: center;
+}
+#product-main-div{
+    display: flex;
+    flex-direction: column;
     height: 100%;
-    font-size: 23px;
-    border: .5px;
-    font-family: "Manrope", serif;
-    background: transparent;
-    border-radius: 7px;
-    border-style: solid;
-    border-color: black;
+    width: 100%;
+    align-items: center;
+    text-align: center;
+
+}
+#snap-text{
+    font-size: 25px;
+    color: black;
+    font-weight: 400;
+}
+#goto-icon{
+    font-size: 15px;
+    color: grey;
+}
+#snap-tag{
+    font-size: 20px;
+    color: black;
     
 
 }
