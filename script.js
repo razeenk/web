@@ -1,23 +1,11 @@
-// Greeting rotation functionality
+// 1. Add error handling for element existence
 const greetingElement = document.getElementById('greeting');
-const greetings = [
-    'Hola',
-    'Hello',
-    'नमस्ते',
-    '你好',
-    'Ciao',
-    'Olá',
-    'مرحبا',
-    'നമസ്കാരം'
-];
+const greetings = ['Hola', 'Hello', 'नमस्ते', '你好', 'Ciao', 'Olá', 'مرحبا', 'നമസ്കാരം'];
 let currentIndex = 0;
 
 function changeGreeting() {
-    if (!greetingElement) {
-        console.warn('Greeting element not found');
-        return;
-    }
-
+    if (!greetingElement) return; // Guard clause if element doesn't exist
+    
     currentIndex = (currentIndex + 1) % greetings.length;
     greetingElement.classList.add('roll-out');
     
@@ -32,12 +20,10 @@ function changeGreeting() {
     }, 500);
 }
 
-// Start the interval only if greeting element exists
-if (greetingElement) {
-    setInterval(changeGreeting, 3600);
-}
+// 2. Store interval ID for potential cleanup
+const intervalId = setInterval(changeGreeting, 3600);
 
-// Image protection
+// 3. Add error handling for logo protection
 const logo = document.getElementById('logo');
 if (logo) {
     logo.oncontextmenu = function(e) {
@@ -45,34 +31,26 @@ if (logo) {
     };
 }
 
-// Load text with delay
+// 4. Improve text loading code
 document.addEventListener("DOMContentLoaded", () => {
     const loadingText = document.getElementById("main-txt");
-    if (loadingText) {
-        setTimeout(() => {
+    if (!loadingText) return;
+    
+    setTimeout(() => {
+        if (loadingText.parentElement) {
             loadingText.parentElement.style.visibility = "visible";
-        }, 1000);
-    }
+        }
+    }, 1000);
 });
 
-// Audio player functionality with caching
+// 5. Add error handling for audio functionality
 const audioPlayer = document.getElementById('audioPlayer');
 const playAudioButton = document.getElementById('playAudio');
 
 if (audioPlayer && playAudioButton) {
-    // Use cache for audio source if available
-    if (audioPlayer.src) {
-        CacheManager.fetchFromCacheFirst(audioPlayer.src)
-            .then(response => response.blob())
-            .then(blob => {
-                audioPlayer.src = URL.createObjectURL(blob);
-            })
-            .catch(error => console.warn('Audio caching failed:', error));
-    }
-
     playAudioButton.addEventListener('click', () => {
         audioPlayer.play().catch(error => {
-            console.warn('Audio playback failed:', error);
+            console.error('Error playing audio:', error);
         });
     });
 }
