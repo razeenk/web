@@ -205,7 +205,7 @@ a {
   
 }
 #main{
-  width: 800px;
+  width: 850px;
   max-width: 100%;
   display: flex;
   flex-direction: column;
@@ -222,6 +222,7 @@ a {
   margin-top: -20px;
   color: black;
   font-family: "Manrope", serif;
+  font-size: 32px;
 }
 *{
   margin: 0;
@@ -311,12 +312,15 @@ a {
 #description{
   font-family: "Manrope", serif;
   text-align: center;
+  font-size: 37px;
 }
-
+#pro{
+  font-size: 25px;
+}
 
 /* for audio */
 .audio-button {
-  font-size: 24px;
+  font-size: 20px;
   cursor: pointer;
   color: black;
   border: none;
@@ -347,13 +351,54 @@ a {
 }
 #manifesto-head{
   font-family: "Playfair Display", serif;
+  font-size: 40px;
+}
+#manifesto-points{
+  font-family: "Manrope", serif;
+  font-size: 28px;
+}
+.main-point {
+  font-weight: 420;
 }
 
 /*sector 3 end here */
-#snap-logo{
-  height: 100px;
-  width: 100px;
+/* sector 4 start here */
+#product-text{
+  color: black;
+  font-family: "Playfair Display", serif;
+  margin-top: 2%
+
 }
-#snap-tag{
+#snap-logo{
+  height: 45%;
+  width: 45%;
+  margin-top: 10%;
+  align-self: center;
+}
+#product-main-div{
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  align-items: center;
+  text-align: center;
+
+}
+#snap-text{
+  font-size: 32px;
+  color: black;
+  font-weight: 400;
   font-family: "Manrope", serif;
 }
+#goto-icon{
+  font-size: 20px;
+  color: grey;
+}
+#snap-tag{
+  font-size: 25px;
+  color: black;
+  font-family: "Manrope", serif;
+  
+
+}
+/* sector 4 end here */

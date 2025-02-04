@@ -1,74 +1,88 @@
-/* for making resposive sector 1 */
-@media screen and (max-width: 480px){
-#main-txt{
-    font-size: 17px;
-}
+/* Sector 1 - Mobile Responsive Styles */
+@media screen and (max-width: 480px) {
+    #main-txt {
+        font-size: 17px;
+    }
 
-/* ending sector 1 */
-/* sector 2*/
-#pro{
-    font-size: 20px;
-}
-#playAudio{
-    font-size: medium;
-}
-#description{
-    font-size: 23px;
-}
-#p1{
-    width: 310px;
-}
-/* sector 3 */
-#manifesto-styl{
-    align-items: center;
-    margin: 5%;
-}
-#manifesto-head{
-    font-size: larger;
-}
-#manifesto-points{
-    font-size: large;
-    
-}
-.main-point{
-    font-weight: 400;
-}
-/* end of sector 3 */
-/* sector 4 */
-#product-text{
-    color: black;
-    font-family: "Playfair Display", serif;
-    margin-top: 10%;
+    /* Sector 2 */
+    #pro {
+        font-size: 20px;
+    }
 
-}
-#snap-logo{
-    height: 30%;
-    width: 30%;
-    margin-top: 30%;
-    align-self: center;
-}
-#product-main-div{
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-    width: 100%;
-    align-items: center;
-    text-align: center;
+    #playAudio {
+        font-size: medium;
+    }
 
-}
-#snap-text{
-    font-size: 25px;
-    color: black;
-    font-weight: 400;
-}
-#goto-icon{
-    font-size: 15px;
-    color: grey;
-}
-#snap-tag{
-    font-size: 20px;
-    color: black;
-    
+    #description {
+        font-size: 23px;
+    }
 
-}
+    #p1 {
+        width: 310px;
+        max-width: 100%; /* Added to prevent horizontal scrolling */
+    }
+
+    /* Sector 3 */
+    #manifesto-styl {
+        align-items: center;
+        margin: 5%;
+    }
+
+    #manifesto-head {
+        font-size: larger;
+    }
+
+    #manifesto-points {
+        font-size: large;
+    }
+
+    .main-point {
+        font-weight: 400;
+    }
+
+    /* Sector 4 */
+    #product-text {
+        color: black;
+        font-family: "Playfair Display", serif;
+        margin-top: 10%;
+    }
+
+    #snap-logo {
+        height: 30%;
+        width: 30%;
+        margin-top: 30%;
+        align-self: center;
+        /* Added for better aspect ratio preservation */
+        object-fit: contain;
+    }
+
+    #product-main-div {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        width: 100%;
+        align-items: center;
+        text-align: center;
+        /* Added for better spacing */
+        padding: 0 15px;
+        box-sizing: border-box;
+    }
+
+    #snap-text {
+        font-size: 25px;
+        color: black;
+        font-weight: 400;
+        /* Added for better text wrapping */
+        word-wrap: break-word;
+    }
+
+    #goto-icon {
+        font-size: 15px;
+        color: grey;
+    }
+
+    #snap-tag {
+        font-size: 20px;
+        color: black;
+    }
 }
