@@ -374,6 +374,8 @@ a {
   width: 45%;
   margin-top: 10%;
   align-self: center;
+  pointer-events: none;
+  user-select: none;
 }
 #product-main-div{
   display: flex;
