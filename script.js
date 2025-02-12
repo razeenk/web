@@ -54,3 +54,10 @@ if (audioPlayer && playAudioButton) {
         });
     });
 }
+// 6. Add error handling for logo protection of snapeats
+const logo = document.getElementById('snap-logo');
+if (snap-logo) {
+    snap-logo.oncontextmenu = function(e) {
+        e.preventDefault();
+    };
+}
