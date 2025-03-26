@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>SnapEats Waitlist</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body>
+    <div id="head-cond">
+        <p id="head">SnapEats Waitlist</p>
+    </div>
+    
+<form onsubmit="submitForm(event)" id="submit-form" action="https://script.google.com/macros/s/AKfycbxPcYgiAcP830J643N_PCHPrz2ndrgGPSf1WYpRWdyyuohqjDWBLxnfyEC6smP9aapF/exec" method="post">
+    <div class="inputs">
+      <input name="Restaurant-Name" required type="text" class="details" placeholder="Restaurant Name" id="res">
+      <input name="Owner" required type="text" class="details" placeholder="Owner/Manager Name">
+      <input name="Phone-Number" required type="tel" minlength="10" maxlength="10" class="details" placeholder="Phone Number">
+      <input name="Location" required type="text" class="details" placeholder="Restaurant Location">
+      <input name="Seats" required type="number" min="0" class="details" placeholder="Number of Tables or Seats">
+      <input name="Seats" required type="number" min="0" class="details" placeholder="Average Daily Customers">
+      <input name="Seats" required type="number" min="0" class="details" placeholder="Average Daily Sales">
+      <input id="submit" class="button" type="submit" value="Reserve My Table! 🏆">
+    </div>
+</form>
+<script src="script.js"></script>
+</body>
+</html>

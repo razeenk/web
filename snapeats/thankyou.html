@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>You're In! Welcome to Snapeats! 🎉</title>
+    <link rel="stylesheet" href="thankyou.css">
+</head>
+<body>
+    <div id="main">
+        <p id="header">Thank You, <span id="restaurantName"></span>! 🎉</p>  
+        <p>You're on the list! Stay tuned for early access updates. 🚀</p>  
+        <p>📢 <b>Refer a restaurant for priority access!</b></p>  
+       <p>Need help? We’re here! Reach out anytime at <a href="mailto:snapeats@razeen.xyz">snapeats@razeen.xyz</a>.</p>  
+        <p><b>Snapeats – Smarter Dining Starts Here. 🍽️</b></p>
+    </div>
+    <script>
+        // Get the restaurant name from the URL
+        const params = new URLSearchParams(window.location.search);
+        const restaurantName = params.get("restaurant");
+
+        // Display the restaurant name if available
+        if (restaurantName) {
+            document.getElementById("restaurantName").textContent = restaurantName;
+            document.getElementById("restaurantName2").textContent = restaurantName;
+        } else {
+            document.getElementById("restaurantName").textContent = "Your Restaurant";
+            document.getElementById("restaurantName2").textContent = "Your Restaurant";
+        }
+    </script>
+</body>
+</html>

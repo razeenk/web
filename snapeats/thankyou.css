@@ -1,0 +1,47 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair:ital,opsz,wght@0,5..1200,300..900;1,5..1200,300..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100..700;1,100..700&display=swap');
+body{
+    background-color: #d5f3e2;
+}
+#main{
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 80%;
+  height: 75%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  text-align: center;
+  gap: 50px;
+  
+}
+#header{
+    font-size: 60px;
+    margin-bottom: 20px;
+    font-family: "Playfair Display", serif;
+}
+p{
+    margin: 10px;
+    font-size: 20px;
+    font-family:"IBM Plex Sans", sans-serif
+
+}
+@media (max-width: 768px) {
+    header {
+        font-size: 35px; /* Adjust font size for tablets */
+    }
+    p {
+        font-size: 18px; /* Slightly smaller font for better readability */
+    }
+}
+
+@media (max-width: 480px) {
+    #header {
+        font-size: 30px; /* Further adjust for mobile devices */
+        margin-bottom: 15px; /* Reduce spacing */
+    }
+    p {
+        font-size: 16px; /* Smaller text for mobile screens */
+        margin: 8px; /* Adjust spacing */
+    }
+}
