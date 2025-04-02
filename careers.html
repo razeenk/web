@@ -6,6 +6,24 @@
     <title>Venet Careers</title>
     <script type="module" src="https://unpkg.com/@splinetool/viewer@1.9.80/build/spline-viewer.js"></script>
     <link rel="stylesheet" href="./styles/careers.css">
+    <script>
+    const interval = setInterval(() => {
+        try {
+            const viewers = document.querySelectorAll('spline-viewer');
+            viewers.forEach(viewer => {
+                if (viewer && viewer.shadowRoot) {
+                    const logo = viewer.shadowRoot.querySelector('#logo');
+                    if (logo) {
+                        logo.remove(); // Remove the logo element
+                        console.log("");
+                    }
+                }
+            });
+        } catch (error) {
+            console.error("", error);
+        }
+    }, 500);
+    </script>
 </head>
 <body bgcolor="black">
 
@@ -13,8 +31,8 @@
     <div class="background-container">
         <spline-viewer 
             id="splineScene" 
-            url=https://prod.spline.design/ENDHqaPm-WGSp3NM/scene.splinecode"
-            loading="lazy"> <!-- 🚀 Lazy load for better performance -->
+            url="assets/animations/careers.spline"
+            loading="lazy">
         </spline-viewer>
     </div>
 
@@ -26,7 +44,7 @@
 </body>
 </html>
 
-
-
-
-<spline-viewer url="https://prod.spline.design/ENDHqaPm-WGSp3NM/scene.splinecode"></spline-viewer>
+<script>
+// This script is placed after the HTML closing tag but before the browser renders it
+document.body.appendChild(document.createElement('spline-viewer')).setAttribute('url', 'assets/animations/careers.spline');
+</script>
