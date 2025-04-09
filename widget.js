@@ -1,3 +1,4 @@
+
 // WidgetWhisper Testimonial Embed Script
 (function() {
   function createTestimonialWidget(element) {
@@ -215,4 +216,165 @@
     // Set up dot navigation
     document.querySelectorAll('.ww-dot').forEach(dot => {
       dot.addEventListener('click', () => {
-        const index = parseInt
+        const index = parseInt(dot.getAttribute('data-index') || '0', 10);
+        goToSlide(index);
+        resetAutoplay();
+      });
+    });
+    
+    // Autoplay functionality
+    let autoplayTimer;
+    
+    function startAutoplay() {
+      if (autoplay && testimonials.length > 1) {
+        autoplayTimer = setInterval(() => {
+          goToSlide(currentIndex + 1);
+        }, interval);
+      }
+    }
+    
+    function resetAutoplay() {
+      if (autoplayTimer) {
+        clearInterval(autoplayTimer);
+      }
+      startAutoplay();
+    }
+    
+    // Start the autoplay
+    startAutoplay();
+    
+    // Add event listeners to pause autoplay on hover
+    wrapper.addEventListener('mouseenter', () => {
+      if (autoplayTimer) {
+        clearInterval(autoplayTimer);
+      }
+    });
+    
+    wrapper.addEventListener('mouseleave', () => {
+      startAutoplay();
+    });
+  }
+
+  function parseCSV(csv) {
+    const lines = csv.split('\n');
+    return lines.map(line => {
+      // Handle commas within quotes
+      let inQuote = false;
+      let currentToken = '';
+      const tokens = [];
+      
+      for (let i = 0; i < line.length; i++) {
+        const char = line[i];
+        
+        if (char === '"') {
+          inQuote = !inQuote;
+        } else if (char === ',' && !inQuote) {
+          tokens.push(currentToken);
+          currentToken = '';
+        } else {
+          currentToken += char;
+        }
+      }
+      
+      // Don't forget the last token
+      tokens.push(currentToken);
+      
+      // Clean up the tokens (remove quotes and trim)
+      return tokens.map(token => {
+        token = token.trim();
+        if (token.startsWith('"') && token.endsWith('"')) {
+          token = token.substring(1, token.length - 1);
+        }
+        return token;
+      });
+    }).filter(row => row.length > 0 && row[0].trim() !== '');
+  }
+
+  function createWidgetHTML(style, theme, name, company, text, rating) {
+    const themeClasses = {
+      light: 'bg-white text-gray-800 border border-gray-200',
+      dark: 'bg-gray-900 text-white border border-gray-800',
+      colorful: 'bg-gradient-to-r from-violet-500 to-purple-600 text-white',
+      blue: 'bg-gradient-to-r from-blue-400 to-blue-600 text-white',
+      green: 'bg-gradient-to-r from-green-400 to-green-600 text-white'
+    };
+
+    const renderStars = () => {
+      return Array(5).fill(0).map((_, i) => 
+        `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="${i < rating ? 'currentColor' : 'none'}" stroke="currentColor" stroke-width="2" class="${i < rating ? 'text-amber-400' : 'text-gray-300'}">
+          <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+        </svg>`
+      ).join('');
+    };
+
+    const avatarInitial = name.substring(0, 1);
+
+    if (style === 'card') {
+      return `
+        <div class="p-6 rounded-xl shadow-md max-w-sm ${themeClasses[theme] || themeClasses.light}">
+          <div class="mb-3">${renderStars()}</div>
+          <p class="mb-4 text-sm">${text}</p>
+          <div class="flex items-center gap-3">
+            <div class="w-12 h-12 rounded-full bg-gradient-to-r from-violet-400 to-purple-500 flex items-center justify-center text-white font-medium">
+              ${avatarInitial}
+            </div>
+            <div>
+              <p class="font-medium text-sm">${name}</p>
+              <p class="text-xs ${theme === 'dark' ? 'text-gray-400' : theme === 'colorful' || theme === 'blue' || theme === 'green' ? 'text-white/80' : 'text-gray-500'}">
+                ${company}
+              </p>
+            </div>
+          </div>
+        </div>
+      `;
+    }
+
+    if (style === 'simple') {
+      return `
+        <div class="p-4 rounded-lg max-w-sm ${themeClasses[theme] || themeClasses.light}">
+          <div class="flex items-center gap-3 mb-3">
+            <div class="w-12 h-12 rounded-full bg-gradient-to-r from-violet-400 to-purple-500 flex items-center justify-center text-white font-medium">
+              ${avatarInitial}
+            </div>
+            <div>
+              <p class="font-medium text-sm">${name}</p>
+              <p class="text-xs ${theme === 'dark' ? 'text-gray-400' : theme === 'colorful' || theme === 'blue' || theme === 'green' ? 'text-white/80' : 'text-gray-500'}">
+                ${company}
+              </p>
+            </div>
+          </div>
+          <p class="text-sm">${text}</p>
+          <div class="mt-2">${renderStars()}</div>
+        </div>
+      `;
+    }
+
+    // Quote style or fallback
+    return `
+      <div class="p-6 rounded-xl shadow-md max-w-sm ${themeClasses[theme] || themeClasses.light}">
+        <div class="mb-4 text-4xl font-serif opacity-50 h-8">❝</div>
+        <p class="mb-6 text-sm italic">${text}</p>
+        <div class="flex items-center gap-2">
+          <div class="w-12 h-12 rounded-full bg-gradient-to-r from-violet-400 to-purple-500 flex items-center justify-center text-white font-medium">
+            ${avatarInitial}
+          </div>
+          <div>
+            <p class="font-medium text-sm">${name}</p>
+            <p class="text-xs ${theme === 'dark' ? 'text-gray-400' : theme === 'colorful' || theme === 'blue' || theme === 'green' ? 'text-white/80' : 'text-gray-500'}">
+              ${company}
+            </p>
+          </div>
+        </div>
+      </div>
+    `;
+  }
+
+  // Initialize widgets on page load
+  function initWidgets() {
+    const testimonialContainers = document.querySelectorAll('[id="testimonials"]');
+    testimonialContainers.forEach(createTestimonialWidget);
+  }
+
+  // Run initialization when the script loads
+  initWidgets();
+})();
